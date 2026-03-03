@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>All Registered Students</title>
+</head>
+<body>
+
+<h2>All Registered Students</h2>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Course</th>
+        <th th:if="${role == 'ADMIN'}">Actions</th>
+    </tr>
+
+    <tr th:each="s : ${students}">
+        <td th:text="${s.id}"></td>
+        <td th:text="${s.name}"></td>
+        <td th:text="${s.email}"></td>
+        <td th:text="${s.course}"></td>
+
+        <td th:if="${role == 'ADMIN'}">
+            <a th:href="@{/editStudent/{id}(id=${s.id})}">Edit</a> |
+            <a th:href="@{/deleteStudent/{id}(id=${s.id})}"
+               onclick="return confirm('Are you sure you want to delete?')">
+               Delete
+            </a>
+        </td>
+    </tr>
+</table>
+
+<br>
+<a href="/register">Register Student</a>
+
+</body>
+</html>

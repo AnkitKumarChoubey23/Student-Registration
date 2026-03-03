@@ -1,0 +1,15 @@
+<h2>User Registration</h2>
+
+<form action="/saveUser" method="post">
+    Email: <input type="email" name="email" required><br><br>
+    Phone: <input type="text" name="phone" required><br><br>
+    Password: <input type="password" name="password" required><br><br>
+
+    Role:
+    <select name="role">
+        <option value="USER">User</option>
+        <option value="ADMIN">Admin</option>
+    </select><br><br>
+
+    <input type="submit" value="Register">
+</form>

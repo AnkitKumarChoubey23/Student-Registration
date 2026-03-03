@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Student Registration</title>
+</head>
+<body>
+
+<h2>Student Registration</h2>
+
+<form th:action="@{/saveStudent}" th:object="${student}" method="post">
+
+    Name: <input type="text" th:field="*{name}" /><br><br>
+    Email: <input type="email" th:field="*{email}" /><br><br>
+    Course:
+    <select th:field="*{course}">
+        <option value="Java">Java</option>
+        <option value="Python">Python</option>
+        <option value="C++">C++</option>
+    </select><br><br>
+
+    <input type="submit" value="Register">
+
+</form>
+
+<p th:text="${message}"></p>
+
+<br><br>
+<a href="/students">View All Registered Students</a>
+
+
+</body>
+</html>
